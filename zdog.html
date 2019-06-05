@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Page Title</title>
+		<script src="https://unpkg.com/zdog@1/dist/zdog.dist.min.js"></script>
+		<style>
+			.header{
+				background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url("facebook-cover.jpg");
+				width: 100%;
+				height: 800px;
+				display: flex;
+			}
+
+			canvas{
+				width: 500px;
+				height: 250px;
+				margin: 10% auto 0 auto;
+			}
+
+		</style>
+	</head>
+	<body>
+
+		<div class="header">
+			<canvas class="zdog-canvas"></canvas>
+		</div>
+
+
+	<script>
+		let illo = new Zdog.Illustration({
+		  element: '.zdog-canvas',
+		  dragRotate: true,
+		  zoom: 1,
+		});
+
+		// Slash
+		new Zdog.Shape({
+	  addTo: illo,
+	  path: [
+	    { x: -30, y: 40 }, // start at top left
+	    { x:  10, y: -40 }, // line to top right
+	  ],
+	  closed: false,
+	  stroke: 20,
+	  color: '#6851f3',
+	});
+
+
+	//Star
+	new Zdog.Shape({
+	  addTo: illo,
+	  path: [
+	    { x: 50, y: -45 }, // start at top left
+	    { x: 50, y: 5 }, // line to top right
+	  ],
+	  closed: false,
+	  stroke: 10,
+	  color: '#6851f3',
+	});
+	new Zdog.Shape({
+	  addTo: illo,
+	  path: [
+	    { x: 70, y: -40 }, // start at top left
+	    { x: 30, y: 0 }, // line to top right
+	  ],
+	  closed: false,
+	  stroke: 10,
+	  color: '#6851f3',
+	});
+
+	new Zdog.Shape({
+	  addTo: illo,
+	  path: [
+	    { x: 30, y: -40 }, // start at top left
+	    { x: 70, y: 0 }, // line to top right
+	  ],
+	  closed: false,
+	  stroke: 10,
+	  color: '#6851f3',
+	});
+
+	new Zdog.Shape({
+	  addTo: illo,
+	  path: [
+	    { x: 75, y: -20 }, // start at top left
+	    { x: 25, y: -20 }, // line to top right
+	  ],
+	  closed: false,
+	  stroke: 10,
+	  color: '#6851f3',
+	});
+
+
+
+		function animate() {
+		  illo.updateRenderGraph();
+		  requestAnimationFrame( animate );
+		}
+
+		animate();
+
+	</script>
+	</body>
+</html>
